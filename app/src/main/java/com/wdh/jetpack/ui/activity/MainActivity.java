@@ -1,14 +1,26 @@
 package com.wdh.jetpack.ui.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.navigation.Navigation;
+import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.wdh.jetpack.R;
+import com.wdh.jetpack.ui.fragment.HomeFragment;
+import com.wdh.jetpack.ui.fragment.MessageFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener
+        , ViewPager.OnPageChangeListener {
     private BottomNavigationView bottomNavigationView;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +30,71 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        bottomNavigationView=findViewById(R.id.BottomNavigationView);
+        viewPager = findViewById(R.id.viewPager);
+        bottomNavigationView = findViewById(R.id.BottomNavigationView);
+        viewPager.addOnPageChangeListener(this);
+        bottomNavigationView.setOnNavigationItemSelectedListener(this);
+        viewPager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager(), 0));
+        //bottomNavigationView.setSelectedItemId(R.id.tab_three);//设置默认选中
+        //viewPager.setCurrentItem(1);//设置默认选中方法2
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        int itemId = menuItem.getItemId();
+        switch (itemId) {
+            case R.id.tab_one:
+                viewPager.setCurrentItem(0);
+                break;
+            case R.id.tab_two:
+                viewPager.setCurrentItem(1);
+                Toast.makeText(this, "德玛西亚", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.tab_three:
+                viewPager.setCurrentItem(2);
+                break;
+            case R.id.tab_four:
+                viewPager.setCurrentItem(3);
+                break;
+        }
+        return false;
+    }
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+        MenuItem menuItem = bottomNavigationView.getMenu().getItem(position);
+        menuItem.setChecked(true);
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
+    }
+}
+
+
+class ViewPagerAdapter extends FragmentPagerAdapter {
+    private Fragment[] mFragments = new Fragment[]{new HomeFragment(), new MessageFragment(), new HomeFragment(), new MessageFragment()};
+
+    ViewPagerAdapter(@NonNull FragmentManager fm, int behavior) {
+        super(fm, behavior);
+    }
+
+
+    @NonNull
+    @Override
+    public Fragment getItem(int position) {
+        return mFragments[position];
+    }
+
+    @Override
+    public int getCount() {
+        return mFragments.length;
     }
 }
 

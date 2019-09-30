@@ -6,7 +6,6 @@
     android:background="#999999"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
     <ImageView
         android:id="@+id/iv"
         app:layout_constraintRight_toRightOf="parent"
