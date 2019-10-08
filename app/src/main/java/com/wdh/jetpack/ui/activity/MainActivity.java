@@ -37,6 +37,11 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         viewPager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager(), 0));
         //bottomNavigationView.setSelectedItemId(R.id.tab_three);//设置默认选中
         //viewPager.setCurrentItem(1);//设置默认选中方法2
+
+        //BottomNavigationView使用Navigation
+//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+//        BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
+//        NavigationUI.setupWithNavController(bottomNav, navController);
     }
 
     @Override
@@ -48,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 break;
             case R.id.tab_two:
                 viewPager.setCurrentItem(1);
-                Toast.makeText(this, "德玛西亚", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "德玛西亚", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.tab_three:
                 viewPager.setCurrentItem(2);

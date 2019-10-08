@@ -13,7 +13,15 @@
         <!--        动作由<action>元素表示。动作至少应包含其自己的ID和应将用户带到的目的地的ID。-->
         <action
             android:id="@+id/action_navigation_one_to_blankFragment"
-            app:destination="@id/blankFragment" />
+            app:destination="@id/blankFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <!--        enter: A的进入动画-->
+        <!--        exit: A的退出动画-->
+        <!--        Pop enter:B的进入动画-->
+        <!--        Pop exit: B的退出动画-->
         <action
             android:id="@+id/action_navigation_one_to_navigationTwoFrag"
             app:destination="@id/NavigationTwoFrag" />
@@ -32,5 +40,9 @@
         <action
             android:id="@+id/action_navigation_one_to_blankFragment"
             app:destination="@id/blankFragment" />
+        <argument
+            android:name="navTwoArg"
+            app:argType="string"
+            android:defaultValue="哈哈哈" />
     </fragment>
 </navigation>
