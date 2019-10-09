@@ -29,6 +29,7 @@
         app:itemIconTint="@drawable/selector_tab_color"
         app:itemTextColor="@drawable/selector_tab_color"
         app:menu="@menu/bottom_navigation_tab"
+        app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent" />
 <!--    app:labelVisibilityMode="labeled" 选中的tab不要让图标变大-->
 </androidx.constraintlayout.widget.ConstraintLayout>

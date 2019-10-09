@@ -5,17 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.navigation.Navigation;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.wdh.jetpack.R;
 import com.wdh.jetpack.ui.fragment.HomeFragment;
-import com.wdh.jetpack.ui.fragment.MessageFragment;
+import com.wdh.jetpack.ui.fragment.message.MessageFragment;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener
         , ViewPager.OnPageChangeListener {
@@ -39,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         //viewPager.setCurrentItem(1);//设置默认选中方法2
 
         //BottomNavigationView使用Navigation
+        //val navGraphIds = listOf(R.navigation.home, R.navigation.list, R.navigation.form) //kt
 //        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
 //        BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
 //        NavigationUI.setupWithNavController(bottomNav, navController);
