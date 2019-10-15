@@ -11,7 +11,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.wdh.mainlibrary.databinding.FragmentMainBinding;
-import com.wdh.mainlibrary.ui.fragment.OrderFragment;
+import com.wdh.mainlibrary.ui.fragment.MainItemFragment;
 import com.wdh.mainlibrary.viewmodels.MainFragViewModel;
 
 import java.util.ArrayList;
@@ -40,7 +40,7 @@ public class MainFragCtrl {
     public void setViewPage(Fragment fragment) {
         List<Fragment> mFragments = new ArrayList<>();
         for (int i = 0; i < mTitles.length; i++)
-            mFragments.add(new OrderFragment());
+            mFragments.add(new MainItemFragment());
         ViewPageAdapter adapter = new ViewPageAdapter(fragment.getChildFragmentManager(), mFragments, mTitles);
         binding.viewpage.setAdapter(adapter);
         //将tab和ViewPager关联起来

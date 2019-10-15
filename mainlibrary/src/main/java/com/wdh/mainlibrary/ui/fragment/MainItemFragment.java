@@ -8,16 +8,14 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import com.wdh.mainlibrary.databinding.FragmentMainItemBinding;
 
-import com.wdh.mainlibrary.R;
-import com.wdh.mainlibrary.databinding.FragmentMyBinding;
-import com.wdh.mainlibrary.databinding.FragmentOrderBinding;
-
-public class OrderFragment extends Fragment {
+public class MainItemFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        FragmentOrderBinding binding=FragmentOrderBinding.inflate(inflater,container,false);
+//        View mContentView = inflater.inflate(R.layout.fragment_main_item, container, false);
+        FragmentMainItemBinding binding=FragmentMainItemBinding.inflate(inflater,container,false);
         return binding.getRoot();
     }
 }

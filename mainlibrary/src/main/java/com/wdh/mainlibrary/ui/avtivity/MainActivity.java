@@ -10,13 +10,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
+
 import com.wdh.mainlibrary.R;
 import com.wdh.mainlibrary.databinding.ActivityNavMainBinding;
 
 
-import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,11 +28,17 @@ public class MainActivity extends AppCompatActivity {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActivityNavMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_nav_main);
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        NavHostFragment navHostFragment = (NavHostFragment) fragmentManager.findFragmentById(R.id.main_nav_fragment);
+
         //this.navController = Navigation.findNavController(this, R.id.main_nav_fragment);
         //this.appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
-        this.navController = Objects.requireNonNull(navHostFragment).getNavController();
+
+//        FragmentManager fragmentManager = getSupportFragmentManager();//这个方法也可以设置bottomNavigationView
+//        NavHostFragment navHostFragment = (NavHostFragment) fragmentManager.findFragmentById(R.id.main_nav_fragment);
+//        this.navController = Objects.requireNonNull(navHostFragment).getNavController();
+
+        //设置bottomNavigationView 2
+        this.navController = Navigation.findNavController(this, R.id.main_nav_fragment);
+
         NavigationUI.setupWithNavController(binding.bottomNavigationView, navController);
     }
 
