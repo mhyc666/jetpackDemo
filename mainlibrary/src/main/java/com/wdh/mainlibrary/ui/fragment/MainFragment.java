@@ -2,6 +2,7 @@ package com.wdh.mainlibrary.ui.fragment;
 
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,8 @@ import androidx.fragment.app.Fragment;
 
 import com.wdh.mainlibrary.control.MainFragCtrl;
 import com.wdh.mainlibrary.databinding.FragmentMainBinding;
+
+import java.util.logging.Logger;
 
 
 public class MainFragment extends Fragment {
