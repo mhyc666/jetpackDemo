@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <!--id必须和MUEN里的ID一样 -->
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.wdh.mainlibrary.ui.fragment.MainFragment"
+        android:label="mainFragment"
+        tools:layout="@layout/fragment_main" />
+    <!--        &lt;!&ndash;        动作由<action>元素表示。动作至少应包含其自己的ID和应将用户带到的目的地的ID。&ndash;&gt;-->
+    <!--        <action-->
+    <!--            android:id="@+id/action_navigation_one_to_blankFragment"-->
+    <!--            app:destination="@id/OrderFragment"-->
+    <!--            app:enterAnim="@anim/nav_default_enter_anim"-->
+    <!--            app:exitAnim="@anim/nav_default_exit_anim"-->
+    <!--            app:popEnterAnim="@anim/nav_default_pop_enter_anim"-->
+    <!--            app:popExitAnim="@anim/nav_default_pop_exit_anim" />-->
+    <!--        &lt;!&ndash;        enter: A的进入动画&ndash;&gt;-->
+    <!--        &lt;!&ndash;        exit: A的退出动画&ndash;&gt;-->
+    <!--        &lt;!&ndash;        Pop enter:B的进入动画&ndash;&gt;-->
+    <!--        &lt;!&ndash;        Pop exit: B的退出动画&ndash;&gt;-->
+    <!--        <action-->
+    <!--            android:id="@+id/action_navigation_one_to_navigationTwoFrag"-->
+    <!--            app:destination="@id/NavigationTwoFrag" />-->
+    <!--    </fragment>-->
+
+    <fragment
+        android:id="@+id/orderFragment"
+        android:name="com.wdh.mainlibrary.ui.fragment.OrderFragment"
+        android:label="orderFragment"
+        tools:layout="@layout/fragment_order" />
+
+    <fragment
+        android:id="@+id/storeFragment"
+        android:name="com.wdh.mainlibrary.ui.fragment.StoreFragment"
+        android:label="storeFragment"
+        tools:layout="@layout/fragment_store" />
+    <!--        <action-->
+    <!--            android:id="@+id/action_navigation_one_to_blankFragment"-->
+    <!--            app:destination="@id/blankFragment" />-->
+    <!--        <argument-->
+    <!--            android:name="navTwoArg"-->
+    <!--            app:argType="string"-->
+    <!--            android:defaultValue="哈哈哈" />-->
+    <!--    </fragment>-->
+
+    <fragment
+        android:id="@+id/myFragment"
+        android:name="com.wdh.mainlibrary.ui.fragment.MyFragment"
+        android:label="myFragment"
+        tools:layout="@layout/fragment_my" />
+    <!--        <action-->
+    <!--            android:id="@+id/action_navigation_one_to_blankFragment"-->
+    <!--            app:destination="@id/blankFragment" />-->
+    <!--        <argument-->
+    <!--            android:name="navTwoArg"-->
+    <!--            app:argType="string"-->
+    <!--            android:defaultValue="哈哈哈" />-->
+    <!--    </fragment>-->
+
+
+</navigation>

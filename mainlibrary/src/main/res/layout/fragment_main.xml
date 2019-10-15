@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.wdh.mainlibrary.viewmodels.MainFragViewModel" />
+
+        <variable
+            name="viewCtrl"
+            type="com.wdh.mainlibrary.control.MainFragCtrl" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/white"
+            android:elevation="3dp"
+            app:contentInsetStart="0dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:targetApi="lollipop">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/message"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_marginEnd="14dp"
+                    android:layout_marginRight="14dp"
+                    android:contentDescription="@null"
+                    android:padding="3dp"
+                    android:src="@mipmap/a_message"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@mipmap/down"
+                    android:drawableRight="@mipmap/down"
+                    android:drawablePadding="3dp"
+                    android:onClick="@{viewCtrl::onClick}"
+                    android:text="@{viewModel.cityName}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@string/m_city" />
+                <!--                tools:text="@string/m_city" 手机上不会显示-->
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_hint"
+                    android:layout_width="7dp"
+                    android:layout_height="7dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginRight="3dp"
+                    android:src="@mipmap/hint"
+                    android:visibility="gone"
+                    app:layout_constraintRight_toRightOf="@id/message"
+                    app:layout_constraintTop_toTopOf="@id/message" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/sliding_tab"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/background_shadow_tb"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        <!--tl:tl_tab_space_equal="true"-->
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewpage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toBottomOf="@id/sliding_tab" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

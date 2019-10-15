@@ -4,7 +4,6 @@ import androidx.databinding.BaseObservable;
 import androidx.databinding.ObservableBoolean;
 import androidx.databinding.ObservableField;
 
-
 public class MessageModel extends BaseObservable {
 
     private final String firstName;
@@ -12,12 +11,22 @@ public class MessageModel extends BaseObservable {
     final ObservableField<String> bottomTxt =  new ObservableField<>();
     final ObservableBoolean isVisibility = new ObservableBoolean();
 
+
     MessageModel(String firstName) {
         this.firstName = firstName;
 
     }
 
-    //notifyPropertyChanged(BR.);//刷新
+//    @Bindable
+//    public String getLastName() {
+//        return this.lastName;
+//    }
+//
+//    public void setFirstName(String firstName) {
+//        this.firstName = firstName;
+//        notifyPropertyChanged(BR.firstName);
+//    }
+//
 
     public ObservableBoolean getIsAdult() {
         return isAdult;
