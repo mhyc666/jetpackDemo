@@ -24,12 +24,13 @@ import java.util.Objects;
 public class MainActivity extends AppCompatActivity {
 
     private NavController navController;
+    private ActivityNavMainBinding binding;
     //private AppBarConfiguration appBarConfiguration;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivityNavMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_nav_main);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_nav_main);
 
         //this.navController = Navigation.findNavController(this, R.id.main_nav_fragment);
         //this.appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         Fragment fragmentById = getSupportFragmentManager().findFragmentById(R.id.main_nav_fragment);
         //fragment的重复加载问题和NavController有关
         navController = NavHostFragment.findNavController(Objects.requireNonNull(fragmentById));
+//        navController = Navigation.findNavController(this, R.id.main_nav_fragment);
         NavigatorProvider provider = navController.getNavigatorProvider();
         //设置自定义的navigator
         FixFragmentNavigator fixFragmentNavictor = new FixFragmentNavigator(this, getSupportFragmentManager(), fragmentById.getId());
@@ -87,4 +89,20 @@ public class MainActivity extends AppCompatActivity {
 //    AppCompatActivity activity = (AppCompatActivity) getActivity();
 //    setSupportActionBar(toolbar);
 //    NavigationUI.setupActionBarWithNavController(this, this.navController, this.appBarConfiguration);
+
+
+    @Override
+    public void onBackPressed() {
+//        如果调用 super.onBackPressed()，navigation会操作回退栈,切换到之前显示的页面，导致 页面叠加错乱
+//        super.onBackPressed();
+        int id = Objects.requireNonNull(navController.getCurrentDestination()).getId();
+        //int homeNavi = navController.getGraph().getId();
+        int homeNavi = R.id.mainFragment;
+        if (id != homeNavi) {
+            binding.bottomNavigationView.setSelectedItemId(R.id.mainFragment);
+        } else {
+            finish();
+        }
+    }
+
 }
