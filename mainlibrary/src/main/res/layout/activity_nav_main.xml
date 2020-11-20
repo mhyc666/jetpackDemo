@@ -11,15 +11,17 @@
 
         <fragment
             android:id="@+id/main_nav_fragment"
-            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:name="com.wdh.mainlibrary.nav.WindowNavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            app:defaultNavHost="true"
             app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
-            app:layout_constraintTop_toTopOf="parent"
-            app:navGraph="@navigation/main_nav_graph" />
-<!--        app:defaultNavHost="true"-->
-<!--        ，让 Navigation 处理返回事件，点返回按钮时并不是返回上一个 Activity，-->
-<!--        而是返回上一个「页面」，上一个「页面」有可能是 Activity，也可能是 Fragment。-->
+            app:layout_constraintTop_toTopOf="parent" />
+<!--        android:name="androidx.navigation.fragment.NavHostFragment"-->
+        <!--        app:navGraph="@navigation/main_nav_graph"-->
+        <!-- app:defaultNavHost="true"-->
+        <!--        ，让 Navigation 处理返回事件，点返回按钮时并不是返回上一个 Activity，-->
+        <!--        而是返回上一个「页面」，上一个「页面」有可能是 Activity，也可能是 Fragment。-->
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavigationView"
             android:layout_width="match_parent"
